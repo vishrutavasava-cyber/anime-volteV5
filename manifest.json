@@ -1,7 +1,6 @@
 {
   "name": "Anime Tracker",
   "short_name": "Anime",
-  "description": "Track anime, movies, ratings and genres",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#020617",
