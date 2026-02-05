@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon.ico">
+<meta name="theme-color" content="#020617">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anime Tracker</title>
+
+<style>
+body{
+ margin:0;background:#020617;color:#e5e7eb;
+ font-family:system-ui;
+ display:flex;justify-content:center;
+}
+.app{max-width:800px;width:100%;padding:15px}
+header{text-align:center;font-size:26px;font-weight:700}
+
+.card{
+ background:#0f172a;padding:12px;
+ border-radius:16px;margin-bottom:12px
+}
+input,select,button{
+ width:100%;padding:10px;
+ margin-top:8px;border:none;border-radius:10px
+}
+button{
+ background:#6366f1;color:white;
+ cursor:pointer;font-size:16px
+}
+.genres{
+ display:flex;flex-wrap:wrap;gap:6px;margin-top:8px
+}
+.genres label{
+ padding:6px 10px;
+ border-radius:12px;
+ font-size:13px;
+ cursor:pointer;
+ user-select:none
+}
+.genres input{display:none}
+
+.list{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:12px
+}
+.anime{
+ background:#020617;padding:12px;border-radius:16px
+}
+.tag{
+ display:inline-block;
+ padding:4px 8px;
+ border-radius:10px;
+ font-size:12px;
+ margin:2px;
+ color:white
+}
+.del{background:#ef4444;margin-top:6px}
+
+/* GENRE COLORS */
+.Action{background:#ef4444}
+.Romance{background:#ec4899}
+.Comedy{background:#facc15;color:black}
+.Fantasy{background:#a855f7}
+.Horror{background:#6b7280}
+.SciFi{background:#22d3ee;color:black}
+.Isekai{background:#3b82f6}
+.Slice{background:#a16207}
+.Drama{background:#fb923c}
+.Movie{background:#22c55e;color:black}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<header>🎌 Anime Tracker</header>
+
+<div class="card">
+ <input id="name" placeholder="Anime name">
+ <input id="rating" type="number" step="0.1" placeholder="Rating (0-10)">
+
+ <select id="status">
+  <option value="">Status</option>
+  <option>Watching</option>
+  <option>Completed</option>
+  <option>Planned</option>
+ </select>
+
+ <div class="genres">
+  <label class="Action"><input type="checkbox" value="Action"> ⚔️ Action</label>
+  <label class="Romance"><input type="checkbox" value="Romance"> ❤️ Romance</label>
+  <label class="Comedy"><input type="checkbox" value="Comedy"> 😂 Comedy</label>
+  <label class="Fantasy"><input type="checkbox" value="Fantasy"> 🐉 Fantasy</label>
+  <label class="Horror"><input type="checkbox" value="Horror"> 👻 Horror</label>
+  <label class="SciFi"><input type="checkbox" value="SciFi"> 🤖 Sci-Fi</label>
+  <label class="Isekai"><input type="checkbox" value="Isekai"> 🌌 Isekai</label>
+  <label class="Slice"><input type="checkbox" value="Slice"> ☕ Slice</label>
+  <label class="Drama"><input type="checkbox" value="Drama"> 🎭 Drama</label>
+  <label class="Movie"><input type="checkbox" value="Movie"> 🎬 Movie</label>
+ </div>
+
+ <button id="addBtn">Add Anime</button>
+</div>
+
+<div class="card">
+ <input id="search" placeholder="Search...">
+ <button id="sortBtn">Sort by Rating ⭐</button>
+</div>
+
+<div id="list" class="list"></div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+ let data = JSON.parse(localStorage.getItem("animeData")) || {};
+
+ const save = () =>
+  localStorage.setItem("animeData", JSON.stringify(data));
+
+ const list = document.getElementById("list");
+
+ function render(){
+  list.innerHTML="";
+  for(let n in data){
+   const a=data[n];
+   list.innerHTML+=`
+    <div class="anime">
+     ${a.genres.map(g=>`<span class="tag ${g}">${g}</span>`).join("")}
+     <span class="tag">${a.status}</span>
+     <h3>${n}</h3>
+     <p>⭐ ${a.rating}</p>
+     <button class="del" data-name="${n}">Delete</button>
+    </div>`;
+  }
+ }
+
+ document.getElementById("addBtn").addEventListener("click",()=>{
+  const name=document.getElementById("name").value.trim();
+  const rating=parseFloat(document.getElementById("rating").value);
+  const status=document.getElementById("status").value;
+  const genres=[...document.querySelectorAll(".genres input:checked")]
+               .map(x=>x.value);
+
+  if(!name||isNaN(rating)||rating<0||rating>10||!status||genres.length===0){
+   alert("Fill all fields");
+   return;
+  }
+
+  data[name]={rating, status, genres};
+  save(); render();
+ });
+
+ document.getElementById("sortBtn").addEventListener("click",()=>{
+  data=Object.fromEntries(
+   Object.entries(data).sort((a,b)=>b[1].rating-a[1].rating)
+  );
+  save(); render();
+ });
+
+ document.getElementById("search").addEventListener("input",(e)=>{
+  const v=e.target.value.toLowerCase();
+  list.querySelectorAll(".anime").forEach(c=>{
+   c.style.display=c.innerText.toLowerCase().includes(v)?"block":"none";
+  });
+ });
+
+ list.addEventListener("click",(e)=>{
+  if(e.target.classList.contains("del")){
+   delete data[e.target.dataset.name];
+   save(); render();
+  }
+ });
+
+ render();
+});
+</script>
+
+</body>
+</html>
