@@ -38,7 +38,8 @@ button{
  border-radius:12px;
  font-size:13px;
  cursor:pointer;
- user-select:none
+ user-select:none;
+ color:white;
 }
 .genres input{display:none}
 
@@ -62,15 +63,49 @@ button{
 
 /* GENRE COLORS */
 .Action{background:#ef4444}
-.Romance{background:#ec4899}
+.Adventure{background:#10b981}
+.Cars{background:#f97316}
 .Comedy{background:#facc15;color:black}
-.Fantasy{background:#a855f7}
-.Horror{background:#6b7280}
-.SciFi{background:#22d3ee;color:black}
-.Isekai{background:#3b82f6}
-.Slice{background:#a16207}
+.Dementia{background:#8b5cf6}
+.Demons{background:#dc2626}
+.Mystery{background:#6366f1}
 .Drama{background:#fb923c}
-.Movie{background:#22c55e;color:black}
+.Ecchi{background:#db2777}
+.Fantasy{background:#a855f7}
+.Game{background:#14b8a6}
+.Historical{background:#c084fc}
+.Horror{background:#6b7280}
+.Kids{background:#facc15;color:black}
+.Magic{background:#9333ea}
+.MartialArts{background:#ea580c}
+.Mecha{background:#0ea5e9}
+.Music{background:#f472b6}
+.Parody{background:#84cc16}
+.Samurai{background:#b91c1c}
+.Romance{background:#ec4899}
+.School{background:#3b82f6}
+.SciFi{background:#22d3ee;color:black}
+.Shoujo{background:#f472b6}
+.ShoujoAi{background:#db2777}
+.Shounen{background:#ef4444}
+.ShounenAi{background:#be185d}
+.Space{background:#6366f1}
+.Sports{background:#22c55e}
+.SuperPower{background:#f43f5e}
+.Vampire{background:#7c3aed}
+.Yaoi{background:#a21caf}
+.Yuri{background:#d946ef}
+.Harem{background:#fb7185}
+.SliceOfLife{background:#ca8a04}
+.Supernatural{background:#6d28d9}
+.Military{background:#374151}
+.Police{background:#1d4ed8}
+.Psychological{background:#4b5563}
+.Thriller{background:#111827}
+.Seinen{background:#0f172a}
+.Josei{background:#f472b6}
+.Isekai{background:#3b82f6}
+
 </style>
 </head>
 
@@ -91,16 +126,51 @@ button{
  </select>
 
  <div class="genres">
-  <label class="Action"><input type="checkbox" value="Action"> ⚔️ Action</label>
-  <label class="Romance"><input type="checkbox" value="Romance"> ❤️ Romance</label>
-  <label class="Comedy"><input type="checkbox" value="Comedy"> 😂 Comedy</label>
-  <label class="Fantasy"><input type="checkbox" value="Fantasy"> 🐉 Fantasy</label>
-  <label class="Horror"><input type="checkbox" value="Horror"> 👻 Horror</label>
-  <label class="SciFi"><input type="checkbox" value="SciFi"> 🤖 Sci-Fi</label>
-  <label class="Isekai"><input type="checkbox" value="Isekai"> 🌌 Isekai</label>
-  <label class="Slice"><input type="checkbox" value="Slice"> ☕ Slice</label>
-  <label class="Drama"><input type="checkbox" value="Drama"> 🎭 Drama</label>
-  <label class="Movie"><input type="checkbox" value="Movie"> 🎬 Movie</label>
+
+<label class="Action"><input type="checkbox" value="Action"> Action</label>
+<label class="Adventure"><input type="checkbox" value="Adventure"> Adventure</label>
+<label class="Cars"><input type="checkbox" value="Cars"> Cars</label>
+<label class="Comedy"><input type="checkbox" value="Comedy"> Comedy</label>
+<label class="Dementia"><input type="checkbox" value="Dementia"> Dementia</label>
+<label class="Demons"><input type="checkbox" value="Demons"> Demons</label>
+<label class="Mystery"><input type="checkbox" value="Mystery"> Mystery</label>
+<label class="Drama"><input type="checkbox" value="Drama"> Drama</label>
+<label class="Ecchi"><input type="checkbox" value="Ecchi"> Ecchi</label>
+<label class="Fantasy"><input type="checkbox" value="Fantasy"> Fantasy</label>
+<label class="Game"><input type="checkbox" value="Game"> Game</label>
+<label class="Historical"><input type="checkbox" value="Historical"> Historical</label>
+<label class="Horror"><input type="checkbox" value="Horror"> Horror</label>
+<label class="Kids"><input type="checkbox" value="Kids"> Kids</label>
+<label class="Magic"><input type="checkbox" value="Magic"> Magic</label>
+<label class="MartialArts"><input type="checkbox" value="MartialArts"> Martial Arts</label>
+<label class="Mecha"><input type="checkbox" value="Mecha"> Mecha</label>
+<label class="Music"><input type="checkbox" value="Music"> Music</label>
+<label class="Parody"><input type="checkbox" value="Parody"> Parody</label>
+<label class="Samurai"><input type="checkbox" value="Samurai"> Samurai</label>
+<label class="Romance"><input type="checkbox" value="Romance"> Romance</label>
+<label class="School"><input type="checkbox" value="School"> School</label>
+<label class="SciFi"><input type="checkbox" value="SciFi"> Sci-Fi</label>
+<label class="Shoujo"><input type="checkbox" value="Shoujo"> Shoujo</label>
+<label class="ShoujoAi"><input type="checkbox" value="ShoujoAi"> Shoujo Ai</label>
+<label class="Shounen"><input type="checkbox" value="Shounen"> Shounen</label>
+<label class="ShounenAi"><input type="checkbox" value="ShounenAi"> Shounen Ai</label>
+<label class="Space"><input type="checkbox" value="Space"> Space</label>
+<label class="Sports"><input type="checkbox" value="Sports"> Sports</label>
+<label class="SuperPower"><input type="checkbox" value="SuperPower"> Super Power</label>
+<label class="Vampire"><input type="checkbox" value="Vampire"> Vampire</label>
+<label class="Yaoi"><input type="checkbox" value="Yaoi"> Yaoi</label>
+<label class="Yuri"><input type="checkbox" value="Yuri"> Yuri</label>
+<label class="Harem"><input type="checkbox" value="Harem"> Harem</label>
+<label class="SliceOfLife"><input type="checkbox" value="SliceOfLife"> Slice of Life</label>
+<label class="Supernatural"><input type="checkbox" value="Supernatural"> Supernatural</label>
+<label class="Military"><input type="checkbox" value="Military"> Military</label>
+<label class="Police"><input type="checkbox" value="Police"> Police</label>
+<label class="Psychological"><input type="checkbox" value="Psychological"> Psychological</label>
+<label class="Thriller"><input type="checkbox" value="Thriller"> Thriller</label>
+<label class="Seinen"><input type="checkbox" value="Seinen"> Seinen</label>
+<label class="Josei"><input type="checkbox" value="Josei"> Josei</label>
+<label class="Isekai"><input type="checkbox" value="Isekai"> Isekai</label>
+
  </div>
 
  <button id="addBtn">Add Anime</button>
@@ -119,10 +189,7 @@ button{
 document.addEventListener("DOMContentLoaded", () => {
 
  let data = JSON.parse(localStorage.getItem("animeData")) || {};
-
- const save = () =>
-  localStorage.setItem("animeData", JSON.stringify(data));
-
+ const save = () => localStorage.setItem("animeData", JSON.stringify(data));
  const list = document.getElementById("list");
 
  function render(){
@@ -144,8 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const name=document.getElementById("name").value.trim();
   const rating=parseFloat(document.getElementById("rating").value);
   const status=document.getElementById("status").value;
-  const genres=[...document.querySelectorAll(".genres input:checked")]
-               .map(x=>x.value);
+  const genres=[...document.querySelectorAll(".genres input:checked")].map(x=>x.value);
 
   if(!name||isNaN(rating)||rating<0||rating>10||!status||genres.length===0){
    alert("Fill all fields");
@@ -157,9 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
  });
 
  document.getElementById("sortBtn").addEventListener("click",()=>{
-  data=Object.fromEntries(
-   Object.entries(data).sort((a,b)=>b[1].rating-a[1].rating)
-  );
+  data=Object.fromEntries(Object.entries(data).sort((a,b)=>b[1].rating-a[1].rating));
   save(); render();
  });
 
@@ -179,11 +243,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
  render();
 });
-</script>
-<script>
+
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
 }
 </script>
+
 </body>
 </html>
